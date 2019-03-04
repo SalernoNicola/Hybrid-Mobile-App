@@ -1,0 +1,25 @@
+<ion-menu [content]="content">
+
+    <ion-content class="app-content">
+        <ion-row class="logo-row">
+            <ion-col></ion-col>
+            <ion-col width-67>
+                <img src="assets/imgs/JACE.png" class="Logo_JACE" />
+            </ion-col>
+            <ion-col></ion-col>
+        </ion-row>
+
+        <ion-list no-lines>
+            <button menuClose ion-item *ngFor="let menuItem of appMenuItems" (click)="openPage(menuItem)" class="app-content">
+                <ion-icon item-left [name]="menuItem.icon"></ion-icon>
+                {{menuItem.title}}
+              </button>
+        </ion-list>
+
+
+    </ion-content>
+
+</ion-menu>
+
+
+<ion-nav [root]="rootPage" #myNav #content swipeBackEnabled="false"></ion-nav>

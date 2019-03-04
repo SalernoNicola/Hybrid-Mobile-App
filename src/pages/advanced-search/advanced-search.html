@@ -1,0 +1,175 @@
+<!--
+  Generated template for the AdvancedSearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+          <ion-icon name="menu" color="mio"></ion-icon>
+      </button>
+        <ion-title color="white">Ricerca Avanzata</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="outer-content">
+
+    <ion-list no-lines>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <div>
+                        <form [formGroup]="validate" (ngSubmit)="submitForm(validate.value)">
+                            <ion-item>
+                                <ion-input placeholder="Digita un luogo" [(ngModel)]="search" (ionChange)="setSearch(search)" color="secondary!important" formControlName="name"></ion-input>
+                            </ion-item>
+                            <ion-item *ngIf="validate.get('name').hasError('required') && validate.get('name').touched" style="background-color: rgb(30, 30, 30)!important">
+                                <p class="error-box">*Il luogo è richiesto</p>
+                            </ion-item>
+                        </form>
+                    </div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <div>
+
+                        <div *ngIf="raggio== 0; then ok1 else no1"></div>
+                        <ng-template id="float1" #ok1>
+                            <ion-label id="radius">Distanza</ion-label>
+                        </ng-template>
+                        <ng-template #no1>
+                            <ion-label id="radius">Distanza:{{raggio}} km</ion-label>
+                        </ng-template>
+                        <ion-range min="10" max="100" step="10" [(ngModel)]="raggio" color="mio" pin="true" snaps="true" id="valuerange" (ionChange)="setRadius(raggio)">
+                            <ion-label range-left id="pcustom">10</ion-label>
+                            <ion-label range-right id="pcustom">100</ion-label>
+                        </ion-range>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-list>
+
+    <ion-list no-lines>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <div>
+                        <ion-item>
+                            <ion-label>Data</ion-label>
+                            <ion-datetime doneText="Ok" cancelText="Cancella" displayFormat="YYYY MM DD" max="{{massimoD}}" min="{{minimoD}}" [(ngModel)]="myDate" (ionChange)="setData($event)"></ion-datetime>
+                        </ion-item>
+                    </div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <div>
+                        <ion-item>
+                            <ion-label>Inizio</ion-label>
+                            <ion-select [(ngModel)]="TempoInizio" style="color: white;max-width: 100%;" interface="popover">
+                                <ion-option *ngFor="let x of timeStart; let i = index" (ionSelect)="checkEnd($event)" value="{{x.time}}" selected="{{(i==0).toString()}}"> {{x.time}}</ion-option>
+                            </ion-select>
+                        </ion-item>
+                    </div>
+                </ion-col>
+                <ion-col>
+                    <div>
+                        <ion-item>
+                            <ion-label>Fine</ion-label>
+                            <ion-select [(ngModel)]="TempoFine" style="color: white;max-width: 100%;" interface="popover">
+                                <ion-option *ngFor="let x of timeEnds ; let i = index" (ionSelect)="checkStart($event)" value="{{x.time}}" selected="{{(i==0).toString()}}">{{x.time}}</ion-option>
+                            </ion-select>
+                        </ion-item>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-list>
+
+    <ion-list no-lines>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <div>
+                        <ion-item>
+                            <ion-label>Tipo</ion-label>
+                            <ion-select [(ngModel)]="tipo" style="color: white" interface="popover" (ionChange)="setType($event)">
+                                <ion-option value="Co-Working" checked="true">Co-Working</ion-option>
+                                <ion-option value="Sala Riunioni">Sala Riunioni</ion-option>
+                                <ion-option value="Conferenza">Conferenza</ion-option>
+                            </ion-select>
+                        </ion-item>
+                    </div>
+                </ion-col>
+                <ion-col>
+                    <div>
+                        <ion-item>
+                            <ion-label>N° Persone</ion-label>
+                            <ion-select [(ngModel)]="npers" style="color: white" interface="popover" (ionChange)="setPerson($event)">
+                                <ion-option *ngFor="let item of c ; let i = index" selected="{{(i==0).toString()}}">{{item}}</ion-option>
+                            </ion-select>
+                        </ion-item>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-list>
+    <ion-list no-lines padding>
+        <ion-grid id="gridoption">
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-label>Altre opzioni</ion-label>
+                        <ion-checkbox checked="false" (click)="onButtonClick()"></ion-checkbox>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="buttonClicked">
+                <ion-col>
+                    <div>
+                        <ion-item>
+                            <ion-label>Coffee Area</ion-label>
+                            <ion-checkbox [(ngModel)]="coffee" checked="false"></ion-checkbox>
+                        </ion-item>
+                    </div>
+                </ion-col>
+                <ion-col>
+                    <div>
+                        <ion-item>
+                            <ion-label>Wi-fi</ion-label>
+                            <ion-checkbox [(ngModel)]="Wifi" checked="false"></ion-checkbox>
+                        </ion-item>
+                    </div>
+                </ion-col>
+            </ion-row>
+            <ion-row *ngIf="buttonClicked">
+                <ion-col col-md-6>
+                    <div>
+                        <ion-item>
+                            <ion-label>Stampante</ion-label>
+                            <ion-checkbox [(ngModel)]="stamp" checked="false"></ion-checkbox>
+                        </ion-item>
+                    </div>
+                </ion-col>
+                <ion-col col-md-6>
+                    <div>
+                        <ion-item>
+                            <ion-label>Mensa</ion-label>
+                            <ion-checkbox [(ngModel)]="cucina" checked="false"></ion-checkbox>
+                        </ion-item>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-list>
+</ion-content>
+<ion-footer *ngIf="control">
+    <ion-grid>
+        <ion-row>
+            <ion-col style="text-align:center" (click)="Search()"><button ion-button round type="submit" ion-button full [disabled]="!validate.valid" style="background-color:rgb(236, 100, 6)">Cerca</button></ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-footer>

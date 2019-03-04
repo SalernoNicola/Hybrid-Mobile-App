@@ -1,0 +1,145 @@
+// http://ionicframework.com/docs/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+.buttoncss {
+    text-align: center;
+    display: flex;
+    button {
+        color: blue;
+    }
+}
+
+.alert-button .button-inner {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    color: black;
+    text-align: center;
+    display: flex;
+}
+
+div.alert-button-group {
+    width: auto;
+    text-align: center;
+    flex-direction: row;
+    align-self: center;
+}
+
+h2#alert-hdr-0.alert-title {
+    text-align: center;
+}
+
+.alertInput button.alert-button-group {
+    width: 33.33%;
+}
+
+.alertInput .alert-button-group-vertical {
+    flex-direction: row;
+}
+
+.ios,
+.md,
+.wp {
+    .fab-md {
+        color: transparent;
+        background-color: transparent;
+    }
+    ion-fab[top] {
+        /* right: +22px; */
+        top: -28px;
+        margin-right: -2px;
+        background-color: transparent;
+    }
+    .alert-md .alert-message,
+    .alert-md .alert-input-group {
+        color: white!important;
+        padding: 0 24px 24px;
+    }
+    body.keyboard-is-open .hideElementOnKeyboardShown {
+        display: none;
+    }
+    .alert-button .button-inner {
+        color: white;
+    }
+    .alert-md .alert-wrapper {
+        color: white!important;
+        background-color: !important;
+    }
+    .back-button-md {
+        color: rgb(236, 100, 6);
+    }
+    .picker-md .picker-opt {
+        color: white;
+    }
+    .picker-md .picker-opt.picker-opt-selected {
+        color: rgb(236, 100, 6);
+    }
+    .picker-md .picker-button,
+    .picker-md .picker-button.activated {
+        color: rgb(236, 100, 6);
+    }
+    .picker-md .picker-toolbar {
+        background-color: #4a4949;
+    }
+    .picker-md .picker-wrapper {
+        background-color: #4a4949;
+    }
+    .item-radio-checked.item-md .radio-checked {
+        border-color: rgb(236, 100, 6);
+    }
+    .radio-md .radio-inner {
+        background-color: rgb(236, 100, 6);
+    }
+    .item-radio-checked.item-md ion-label {
+        border-color: red;
+        color: rgb(236, 100, 6);
+    }
+    ion-item.item.item-block.item-md.item-radio {
+        background: #4a4949;
+        color: white;
+    }
+    .radio-md .radio-icon {
+        border-color: white;
+    }
+    div.radio-inner {
+        color: white;
+    }
+    #4a4949 .Logo_JACE {
+        max-width: 120%;
+        border-radius: 30px;
+    }
+    .app-content {
+        background: rgb(30, 30, 30);
+        color: white;
+    }
+    ion-content {
+        background: rgb(30, 30, 30);
+    }
+}
+
+page-home {
+    .app-content {
+        background: rgb(30, 30, 30);
+    }
+    .text-input::-moz-placeholder {
+        color: white!important;
+    }
+    .text-input:-ms-input-placeholder {
+        color: white!important;
+    }
+    .text-input::-webkit-input-placeholder {
+        color: white!important;
+    }
+}

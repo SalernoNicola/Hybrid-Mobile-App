@@ -1,0 +1,84 @@
+<ion-header>
+    <ion-navbar color="dark">
+        <ion-title>{{item.name}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-card *ngIf="item">
+        <ion-card-header>
+            <ion-slides autoplay="5000" loop="true" speed="3000" pager="true">
+                <ion-slide *ngFor="let slide of img">
+                    <img width="18px" height="42px" [src]="slide">
+                </ion-slide>
+            </ion-slides>
+        </ion-card-header>
+        <ion-card-content>
+            <p> </p>
+            <h2 class="card-title">{{item.name}}</h2>
+            <p class="card-title">{{item.city}}</p>
+            <ion-list>
+
+                <div *ngIf="item.feature.airconditioning=='YES'; then ok else no"></div>
+                <ng-template id="float1" #ok>
+                    <ion-item>
+                        <ion-icon item-left name="wifi"></ion-icon>
+                        <h3>Wi-fi</h3>
+                        <ion-icon item-right name="checkmark" style="color: green"></ion-icon>
+                    </ion-item>
+                </ng-template>
+                <ng-template #no>
+                    <ion-item>
+                        <ion-icon item-left name="wifi"></ion-icon>
+                        <h3>Wi-fi</h3>
+                        <ion-icon item-right name="close" style="color: red"></ion-icon>
+                    </ion-item>
+                </ng-template>
+
+                <div *ngIf="item.feature.coffeearea=='YES'; then ok1 else no1"></div>
+                <ng-template id="float1" #ok1>
+                    <ion-item>
+                        <ion-icon item-left name="cafe"></ion-icon>
+                        <h3>Area Caffè</h3>
+                        <ion-icon item-right name="checkmark" style="color: green"></ion-icon>
+                    </ion-item>
+                </ng-template>
+                <ng-template #no1>
+                    <ion-item>
+                        <ion-icon item-left name="cafe"></ion-icon>
+                        <h3>Area Caffè</h3>
+                        <ion-icon item-right name="close" style="color: red"></ion-icon>
+                    </ion-item>
+                </ng-template>
+
+                <div *ngIf="item.feature.printer=='YES'; then ok2 else no2"></div>
+                <ng-template id="float1" #ok2>
+                    <ion-item>
+                        <ion-icon item-left name="print"></ion-icon>
+                        <h3>Stampante</h3>
+                        <ion-icon item-right name="checkmark" style="color: green"></ion-icon>
+                    </ion-item>
+                </ng-template>
+                <ng-template #no2>
+                    <ion-item>
+                        <ion-icon item-left name="print"></ion-icon>
+                        <h3>Stampante</h3>
+                        <ion-icon item-right name="close" style="color: red"></ion-icon>
+                    </ion-item>
+                </ng-template>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
+<ion-footer padding>
+    <ion-item no-lines>
+        <button ion-button icon-left (click)="favorite(item)" clear item-left style="color:rgb(236, 100, 6)!important">
+                        <ion-icon name="star" color="mio"></ion-icon>
+                        Favoriti
+                    </button>
+        <button ion-button icon-left (click)="booking(item)" clear item-right style="color:rgb(236, 100, 6)!important">
+                        <ion-icon name="create" color="mio"></ion-icon>
+                        Prenota
+                    </button>
+    </ion-item>
+</ion-footer>

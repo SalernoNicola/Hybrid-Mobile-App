@@ -1,0 +1,123 @@
+<!--
+  Generated template for the BookingTwoStepPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="dark">
+        <ion-title color="white">Prenota</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-list>
+        <ion-item class="app-content1">
+            <ion-thumbnail item-left>
+                <img src="{{item.surname}}" />
+            </ion-thumbnail>
+
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <h2>{{item.name}}</h2>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col></ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col></ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-md-9>
+                        <p> {{item.city}}</p>
+                    </ion-col>
+                    <ion-col col-md-3>
+
+                        <ion-note>
+                            <p>
+                                Prezzo persona: {{item.price}} Euro
+                            </p>
+                        </ion-note>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+        </ion-item>
+    </ion-list>
+    <ion-list no-lines>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <div>
+                        <ion-item>
+                            <ion-label>N° Persone</ion-label>
+                            <ion-select [(ngModel)]="nperson" interface="popover" style="color: white">
+                                <ion-option *ngFor="let item of c ; let i = index" selected="{{(i==0).toString()}}" (ionSelect)="pFinal($event)">{{item}}</ion-option>
+                            </ion-select>
+                        </ion-item>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-list>
+    <ion-list no-lines>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <div>
+                        <ion-item>
+                            <ion-label>Data</ion-label>
+                            <ion-datetime doneText="Ok" cancelText="Cancella" displayFormat="YYYY MM DD" max="{{massimoD}}" min="{{minimoD}}" [(ngModel)]="myDate" (ionChange)="setData($event)"></ion-datetime>
+                        </ion-item>
+                    </div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <div>
+                        <ion-item>
+                            <ion-label>Data Inizio</ion-label>
+                            <ion-select [(ngModel)]="TempoInizio" interface="popover" style="color: white;max-width: 100%;">
+                                <ion-option *ngFor="let x of timeStart; let i = index" (ionSelect)="checkEnd($event)" value="{{x.time}}" selected="{{(i==0).toString()}}"> {{x.time}}</ion-option>
+                            </ion-select>
+                        </ion-item>
+                    </div>
+                </ion-col>
+                <ion-col>
+                    <div>
+                        <ion-item>
+                            <ion-label>Data Fine</ion-label>
+                            <ion-select [(ngModel)]="TempoFine" interface="popover" style="color: white;max-width: 100%;">
+                                <ion-option style="background-color: red" *ngFor="let x of timeEnds ; let i = index" (ionSelect)="checkStart($event)" value="{{x.time}}" selected="{{(i==0).toString()}}">{{x.time}}</ion-option>
+                            </ion-select>
+                        </ion-item>
+                    </div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-item class="pFinal" class="app-content1">
+                        <ion-label>Prezzo finale: {{pfinal}} Euro</ion-label>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-list>
+
+</ion-content>
+<ion-footer padding>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <p>
+                    <button ion-button round color="dark" block (click)="lastStep(item)" style="background-color:rgb(236, 100, 6)">Continua prenotazione</button>
+                </p>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-footer>.

@@ -1,0 +1,87 @@
+<ion-header>
+    <ion-navbar color="dark">
+        <ion-title color="white" id="boo">
+            Prenota </ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <form [formGroup]="validate" (ngSubmit)="submitForm(validate.value)">
+        <ion-list>
+            <ion-item class="app-content1">
+                <ion-thumbnail item-left>
+                    <img src="{{item.item.surname}}" />
+                </ion-thumbnail>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col>
+                            <h2>{{item.item.name}}</h2>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col></ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col></ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-md-9>
+                            <p>N° Persone {{item.nperson}}</p>
+                        </ion-col>
+                        <ion-col col-md-3>
+
+                            <ion-note>
+                                <p>
+                                    Prezzo finale:{{item.pfinal}} Euro
+                                </p>
+                            </ion-note>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+        </ion-list>
+        <ion-list no-lines>
+            <ion-item no-lines>
+                <ion-label stacked>Numero Carta</ion-label>
+                <ion-input type="tel" [(ngModel)]="cardNumber" [brmasker]="{mask:'0000 0000 0000 0000', len:19}" formControlName="ncarta"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="(validate.get('ncarta').hasError('required') || validate.get('ncarta').hasError('minlength')) && validate.get('ncarta').touched">
+                <p class="error-box">*Campo Obbligatorio</p>
+            </ion-item>
+        </ion-list>
+        <ion-list no-lines>
+            <ion-item>
+                <ion-label stacked>Mese scadenza</ion-label>
+                <ion-input type="tel" [(ngModel)]="meseScadenza" [brmasker]="{mask:'00', len:2}" formControlName="meses"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="(validate.get('meses').hasError('required')|| validate.get('meses').hasError('minlength')) &&  validate.get('meses').touched ">
+                <p class="error-box">*Campo obbligatorio</p>
+            </ion-item>
+        </ion-list>
+        <ion-list no-lines>
+            <ion-item>
+                <ion-label stacked>Anno scadenza</ion-label>
+                <ion-input type="tel" [(ngModel)]="annoScadenza" [brmasker]="{mask:'00', len:2}" formControlName="annos"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="(validate.get('annos').hasError('required')|| validate.get('annos').hasError('minlength')) && validate.get('annos').touched ">
+                <p class="error-box"> *Campo obbligatorio</p>
+            </ion-item>
+        </ion-list>
+        <ion-list no-lines>
+            <ion-item>
+                <ion-label stacked>CVV</ion-label>
+                <ion-input type="text" [(ngModel)]="CVV" [brmasker]="{mask:'000', len:3}" formControlName="cvv"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="(validate.get('cvv').hasError('required')|| validate.get('cvv').hasError('minlength')) && validate.get('cvv').touched ">
+                <p class="error-box">*Campo obbligatorio</p>
+            </ion-item>
+        </ion-list>
+    </form>
+</ion-content>
+<ion-footer padding *ngIf="control">
+    <p>
+        <button ion-button round color="dark" block (click)="doPrompt()" type="submit" [disabled]="!validate.valid" style="background-color:rgb(236, 100, 6)">Conferma prenotazione</button>
+    </p>
+
+</ion-footer>

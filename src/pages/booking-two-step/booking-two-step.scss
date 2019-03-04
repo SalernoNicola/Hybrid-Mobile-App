@@ -1,0 +1,40 @@
+page-booking-two-step {
+    .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+        border-bottom-color: transparent;
+        -webkit-box-shadow: inset 0 -1px 0 0 transparent;
+        box-shadow: inset 0 -1px 0 0 transparent;
+    }
+    .item-md.item-input.ng-invalid.ng-touched.input-has-focus.item-inner {
+        border-bottom-color: transparent;
+        -webkit-box-shadow: inset 0 -1px 0 0 transparent;
+        box-shadow: inset 0 -1px 0 0 transparent;
+    }
+    .item-md.item-input.ng-invalid.ng-touched.item-input-has-focus.item-inner {
+        border-bottom-color: transparent;
+        -webkit-box-shadow: inset 0 -1px 0 0 transparent;
+        box-shadow: inset 0 -1px 0 0 transparent;
+    }
+    .app-content1 {
+        background: rgb(30, 30, 30)!important;
+        color: white!important;
+    }
+    ion-item {
+        border-radius: 8px;
+        background-color: #484545!important;
+        ion-input {
+            background-color: #484545;
+        }
+        p {
+            color: white!important;
+        }
+        ion-datetime {
+            color: white!important;
+        }
+        ion-label {
+            color: white!important;
+        }
+        ion-option {
+            color: white!important;
+        }
+    }
+}

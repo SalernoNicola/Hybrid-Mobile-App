@@ -1,0 +1,73 @@
+<!--
+<ion-content>
+  <img src="assets/imgs/Logo_JACE.png" class="Logo_JACE"/>
+
+
+  <ion-list>
+    <ion-item>
+      <ion-label floating="">Email</ion-label>
+      <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating="">Password</ion-label>
+      <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <div class="div_bottoni">
+    <button ion-button block (click)="login(user)">Login</button>
+    <button ion-button class="register-btn" block outline>Registrati</button>
+    <!--<button ion-button color="secondary" block (click)="loginGoogle(user)">Login con Facebook</button>
+    <button ion-button color="secondary" block (click)="loginGoogle(user)">Login con Google</button>
+
+  </div>
+
+  <!--<ion-grid>
+    <ion-row>
+      <ion-col center text-center>
+        <button ion-button round (click)="login()">Login</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+-->
+
+<ion-content class="login-content" padding>
+    <ion-row class="logo-row">
+        <ion-col></ion-col>
+        <ion-col width-67>
+
+            <img src="assets/imgs/JACE.png" class="Logo_JACE" />
+        </ion-col>
+        <ion-col></ion-col>
+    </ion-row>
+    <div class="login-box">
+        <form (ngSubmit)="login()" #registerForm="ngForm">
+            <ion-row>
+                <ion-col>
+                    <ion-list inset>
+
+                        <ion-item>
+                            <ion-input type="text" [(ngModel)]="username" placeholder="Username" name="email" required></ion-input>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-input type="password" [(ngModel)]="password" placeholder="Password" name="password" required></ion-input>
+                        </ion-item>
+
+                    </ion-list>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col class="signup-col">
+                    <button ion-button class="submit-btn" full type="submit">Login</button>
+                </ion-col>
+            </ion-row>
+
+        </form>
+    </div>
+
+</ion-content>

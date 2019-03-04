@@ -1,0 +1,123 @@
+.ios,
+.md {
+    page-booking {
+        .list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child,
+        .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child {
+            border-bottom-color: transparent;
+            -webkit-box-shadow: inset 0 -1px 0 0 transparent;
+            box-shadow: inset 0 -1px 0 0 transparent;
+        }
+        .ng-invalid.ng-dirty.ng-touched {
+            border-bottom-color: transparent;
+            -webkit-box-shadow: inset 0 -1px 0 0 transparent;
+            box-shadow: inset 0 -1px 0 0 transparent;
+        }
+        .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+            border-bottom-color: transparent;
+            -webkit-box-shadow: inset 0 -1px 0 0 transparent;
+            box-shadow: inset 0 -1px 0 0 transparent;
+        }
+        .item-md.item-input.ng-invalid.ng-touched.input-has-focus.item-inner {
+            border-bottom-color: transparent;
+            -webkit-box-shadow: inset 0 -1px 0 0 transparent;
+            box-shadow: inset 0 -1px 0 0 transparent;
+        }
+        .item-md.item-input.ng-invalid.ng-touched.item-input-has-focus.item-inner {
+            border-bottom-color: transparent;
+            -webkit-box-shadow: inset 0 -1px 0 0 transparent;
+            box-shadow: inset 0 -1px 0 0 transparent;
+        }
+        .item.item-block.item-md.item-input.item-label-stacked.input-has-value.item-input-has-value.ng-dirty.ng-valid.input-has-focus.item-input-has-focus.ng-touched {
+            border-bottom-color: transparent;
+            -webkit-box-shadow: inset 0 -1px 0 0 transparent;
+            box-shadow: inset 0 -1px 0 0 transparent;
+        }
+        .item.item-block.item-md.item-input.item-label-stacked.ng-untouched.ng-pristine.ng-invalid.input-has-focus.item-input-has-focus {
+            border-bottom-color: transparent;
+            -webkit-box-shadow: inset 0 -1px 0 0 transparent;
+            box-shadow: inset 0 -1px 0 0 transparent;
+        }
+        .item.item-block.item-md.item-input.item-label-stacked.ng-untouched.input-has-focus.item-input-has-focus.ng-dirty.ng-invalid {
+            border-bottom-color: transparent;
+            -webkit-box-shadow: inset 0 -1px 0 0 transparent;
+            box-shadow: inset 0 -1px 0 0 transparent;
+        }
+        .item.item-block.item-md.item-input.item-label-stacked.ng-untouched.ng-invalid.input-has-focus.item-input-has-focus.input-has-value.item-input-has-value.ng-dirty {
+            border-bottom-color: transparent;
+            -webkit-box-shadow: inset 0 -1px 0 0 transparent;
+            box-shadow: inset 0 -1px 0 0 transparent;
+        }
+        .item.item-block.item-md.item-input.item-label-stacked.ng-untouched.input-has-focus.item-input-has-focus.input-has-value.item-input-has-value.ng-dirty.ng-valid {
+            border-bottom-color: transparent;
+            -webkit-box-shadow: inset 0 -1px 0 0 transparent;
+            box-shadow: inset 0 -1px 0 0 transparent;
+        }
+        .alert-md .alert-message,
+        .alert-md .alert-input-group {
+            color: white!important;
+            padding: 0 24px 24px;
+        }
+        #boo {
+            margin-left: -45px!important;
+        }
+        .list-md .item-input:last-child {
+            border-bottom: transparent;
+        }
+        .app-content1 {
+            background: rgb(30, 30, 30)!important;
+            color: white!important;
+        }
+        ion-item {
+            background-color: rgb(30, 30, 30)!important;
+            ion-input {
+                background-color: #484545;
+            }
+            p {
+                color: white!important;
+            }
+            ion-datetime {
+                color: white!important;
+            }
+            ion-label {
+                color: white!important;
+            }
+            ion-option {
+                color: white!important;
+            }
+        }
+        ion-input {
+            background-color: map-get($colors, light);
+            padding-left: 10px;
+            color: white;
+        }
+        ion-label {
+            color: #6c6c6c;
+        }
+        [floating] {
+            margin-left: 10px;
+        }
+        button {
+            margin-right: 50px;
+        }
+        .pFinal {
+            width: 25%;
+            font-size: 10px;
+        }
+        .error-box {
+            color: red!important;
+            font-size: 0.8em;
+            margin-top: -2px;
+            background-color: rgb(30, 30, 30)!important;
+        }
+    }
+}
+
+.item-md p {
+    margin: 0 0 2px;
+    overflow: inherit;
+    font-size: 1.4rem;
+    line-height: normal;
+    text-overflow: inherit;
+    color: #666;
+    font-size: 13px;
+}

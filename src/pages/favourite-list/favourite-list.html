@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu" color="mio"></ion-icon>
+        </button>
+        <ion-title color="white">Favoriti</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list class="app-content1">
+        <ion-item-sliding *ngFor="let favorite of favorites">
+            <button ion-item (click)="itemTapped(favorite)">
+                <ion-thumbnail item-left>
+                    <img src="{{favorite.property.surname}}"/>
+                </ion-thumbnail>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col>
+                                <h2 id="pcustom">{{favorite.property.name}}</h2>                                
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                            <ion-col></ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col></ion-col>
+                        </ion-row>
+                    <ion-row>
+                        <ion-col>
+                                <p id="pcustom">{{favorite.property.city}}</p>   
+                        </ion-col>
+                    </ion-row>
+                    </ion-grid>
+            </button>
+            <ion-item-options>
+                <button danger (click)="deleteItem(favorite)">Delete</button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+</ion-content>

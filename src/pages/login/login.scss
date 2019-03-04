@@ -1,0 +1,72 @@
+/*page-login{
+  ion-content {
+    background: rgb(30,30,30) !important;
+  }
+  .register-btn {
+    color: #ffffff;
+
+  }
+}
+
+ion-item{
+  background: rgb(30,30,30) !important;
+}
+
+.Logo_JACE{
+  max-width: 40%;
+  margin: 0 auto;
+  display: block;
+  border-radius: 50px;
+  margin-top: 5%;
+}
+*/
+
+page-login {
+    .Logo_JACE {
+        max-width: 120%;
+        border-radius: 30px;
+    }
+    .login-content {
+        background: rgb(30, 30, 30);
+        .logo-row {
+            padding-top: 3%;
+            padding-bottom: 20px;
+        }
+        .login-box {
+            background: #4a4949;
+            padding: 20px 20px 0px 20px;
+            margin-top: 3%;
+            border-radius: 15px;
+        }
+        ion-row {
+            align-items: center;
+            text-align: center;
+        }
+        ion-item {
+            border-radius: 30px !important;
+            padding-left: 30px !important;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            border: 1px solid #ffffff;
+            border-bottom: 0px !important;
+            box-shadow: none !important;
+        }
+        .signup-col {
+            margin: 0px 16px 0px 16px;
+            padding-bottom: 20px;
+        }
+        .item-inner {
+            border-bottom-color: #ffffff !important;
+            box-shadow: none !important;
+        }
+        .submit-btn {
+            background: rgb(236, 100, 6);
+            border-radius: 30px !important;
+            border: 1px solid #ffffff;
+        }
+        .register-btn {
+            color: #ffffff;
+            font-size: 0.8em;
+        }
+    }
+}

@@ -1,0 +1,110 @@
+<ion-header>
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu" color="mio"></ion-icon>
+        </button>
+        <ion-searchbar [(ngModel)]="searchKey" color="white!important" placeholder="Inserisci Luogo" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
+
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content class="app-content1">
+    <ion-fab top right *ngIf="viewMode==='list'">
+        <button ion-fab (click)="cia()"><ion-icon name="pin" color="mio" ></ion-icon></button>
+
+    </ion-fab>
+
+    <!--
+    <ion-row>
+        <ion-col col-9>
+            <ion-item>
+                <ion-input type="text" [(ngModel)]="newItem" placeholder="Nuova azienda"></ion-input>
+            </ion-item>
+        </ion-col>
+        <ion-col>
+            <button ion-button (click)="addItem()">Add!</button>
+        </ion-col>
+    </ion-row>
+-->
+
+    <ion-list *ngIf="viewMode==='list'">
+        <div *ngIf="(aziende | async)?.length===0;then na else yes"></div>
+        <ng-template #yes>
+            <ion-grid id="altbo">
+                <ion-row>
+                    <ion-col style="margin-left: 16px">
+                        <div *ngIf="raggio == undefined; then ok1 else no1"></div>
+                        <ng-template id="float1" #ok1>
+                            <ion-label id="radius">Distanza</ion-label>
+                        </ng-template>
+                        <ng-template #no1>
+                            <ion-label id="radius">Distanza:{{raggio}} km</ion-label>
+                        </ng-template>
+                        <ion-range min="10" max="100" step="10" [(ngModel)]="raggio" color="mio" pin="true" snaps="true" id="valuerange" (ionChange)="setRadius(raggio)">
+                            <ion-label range-left id="pcustom">10</ion-label>
+                            <ion-label range-right id="pcustom">100</ion-label>
+                        </ion-range>
+                    </ion-col>
+                    <ion-col col-auto>
+                        <ion-label id="radius" style="font-size: 10px;margin-left:7px">Prezzo</ion-label>
+                        <ion-buttons>
+                            <button (click)="sortCres()" ion-button icon-only clear>
+                                      <ion-icon name="arrow-down" color="mio"></ion-icon>
+                                    </button>
+                            <button (click)="sortDecres()" ion-button icon-only clear>
+                                        <ion-icon name="arrow-up" color="mio"></ion-icon>
+                                      </button>
+                        </ion-buttons>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <button ion-item *ngFor="let item of aziende | async" (click)="openCompaniesDetail(item)" class="app-content1">
+                           <ion-thumbnail item-left>
+                            <img src="{{item.surname}}"/>
+                        </ion-thumbnail>
+                        <ion-grid>
+                            <ion-row>
+                                <ion-col>
+                                    <h2 >{{item.name}}</h2>
+                                </ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col></ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col></ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col col-md-9>
+                                    <p >{{item.city}}</p>
+                                </ion-col>
+                                <ion-col col-md-3>
+        
+                                    <ion-note>
+                                        <p  style="font-size:10px">
+                                            Prezzo persona: {{item.price}} Euro
+                                        </p>
+                                    </ion-note>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+        </button>
+        </ng-template>
+        <ng-template #na>
+            <p style="text-align:center;color:white">Non ci sono aziende in base alla ricerca effettuata</p>
+        </ng-template>
+    </ion-list>
+    <div *ngIf="viewMode==='map'" style="width:100%;height:100%;" id="map"></div>
+
+</ion-content>
+<ion-footer padding *ngIf="control">
+    <ion-segment [(ngModel)]="viewMode" color="mio">
+        <ion-segment-button value="list">
+            <ion-icon name="list" color="mio"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="map" (ionSelect)="showMap()">
+            <ion-icon name="map" color="mio"></ion-icon>
+        </ion-segment-button>
+    </ion-segment>
+</ion-footer>s
